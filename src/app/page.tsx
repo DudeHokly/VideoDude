@@ -1,10 +1,12 @@
-import { Button } from "@/components/ui/button";
+import { Categories, Container, SortComp } from "@/components/shared";
 
 export default function Home() {
   return (
-    <div>
-      <h1>Hi dude</h1>
-      <Button>Click</Button>
-    </div>
+    <>
+      <Container className="mt-10">
+        <Categories />
+        <SortComp />
+      </Container>
+    </>
   );
 }

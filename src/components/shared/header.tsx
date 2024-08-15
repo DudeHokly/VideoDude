@@ -14,9 +14,15 @@ export const Header: React.FC<Props> = ({ className }) => {
         <div>
           <Button>Click</Button>
         </div>
+        <div>
+          <input />
+        </div>
         {/* //SearchInput -- разработать как компонент */}
         <div>
           <img />
+        </div>
+        <div>
+          <Button>Click</Button>
         </div>
       </Container>
     </header>
