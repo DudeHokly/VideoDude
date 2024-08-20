@@ -1,4 +1,5 @@
 import React from "react";
+import { ArrowUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -13,7 +14,7 @@ export const SortComp: React.FC<Props> = ({ className }) => {
         className
       )}
     >
-      <b>Иконка</b>
+      <ArrowUpDown size={16} />
       <b>Сортировка:</b>
       <b className="text-primary">Популярное</b>
     </div>

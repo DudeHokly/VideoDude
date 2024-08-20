@@ -10,7 +10,7 @@ interface Props {
 export const Header: React.FC<Props> = ({ className }) => {
   return (
     <header className={cn("", className)}>
-      <Container className="flex items-center justify-between py-8">
+      <Container className="flex items-center justify-between py-8 mt-10">
         <div>
           <Button>Click</Button>
         </div>
