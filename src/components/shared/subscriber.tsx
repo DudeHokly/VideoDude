@@ -1,5 +1,4 @@
-"use client"; //так как использует клиенский компоненет а не серверный
-import React, { useState } from "react";
+"use client";
 import { cn } from "@/lib/utils";
 
 interface Item {
@@ -14,7 +13,6 @@ interface Props {
   defaultItems: Item[];
   subIcon: string;
   limitItems: number;
-  onChange?: (value: string[]) => void;
   defaultValue?: string[];
   className?: string;
 }
@@ -25,30 +23,8 @@ export const Subscriber: React.FC<Props> = ({
   defaultItems,
   subIcon,
   limitItems,
-  onChange,
-  defaultValue = [],
   className,
 }) => {
-  const [selectedItems, setSelectedItems] = useState<string[]>(defaultValue);
-
-  const handleSelect = (value: string) => {
-    const isSelected = selectedItems.includes(value);
-
-    let newSelectedItems;
-    if (isSelected) {
-      newSelectedItems = selectedItems.filter((item) => item !== value);
-    } else if (selectedItems.length < limitItems) {
-      newSelectedItems = [...selectedItems, value];
-    } else {
-      newSelectedItems = selectedItems;
-    }
-
-    setSelectedItems(newSelectedItems);
-    if (onChange) {
-      onChange(newSelectedItems);
-    }
-  };
-
   return (
     <div className={cn("", className)}>
       <p className="font-bold mb-3">{title}</p>
@@ -56,11 +32,7 @@ export const Subscriber: React.FC<Props> = ({
         {items.map((item) => (
           <div
             key={item.value}
-            onClick={() => handleSelect(item.value)}
-            className={cn(
-              "flex items-center gap-2 p-2 cursor-pointer",
-              selectedItems.includes(item.value) && "bg-gray-200"
-            )}
+            className={cn("flex items-center gap-2 p-2 cursor-pointer")}
           >
             {item.subIcon}
             <span>{item.subAutor}</span>
