@@ -23,17 +23,25 @@ export const AnyCard: React.FC<Props> = ({
   data,
 }) => {
   return (
-    <div className={cn("grid grid-cols-3 gap-4", className)}>
-      <Link href={`/video/${id}`} className="col-span-1">
-        <div className="flex justify-center p-4 bg-gray-800 rounded-lg">
+    <div
+      className={cn(
+        "group transform transition duration-500 hover:scale-105",
+        className
+      )}
+    >
+      <Link
+        href={`/video/${id}`}
+        className="block overflow-hidden rounded-lg shadow-lg bg-gray-800"
+      >
+        <div className="overflow-hidden">
           <img
-            className="w-full h-[180px] object-cover rounded-lg"
+            className="w-full h-[180px] object-cover transition-transform duration-500 group-hover:scale-110"
             src={imgUrl}
             alt={name}
           />
         </div>
       </Link>
-      <div className="col-span-2 flex flex-col justify-between">
+      <div className="p-4">
         <Link href={`/video/${id}`}>
           <Title text={name} size="md" className="text-white font-bold mb-2" />
         </Link>
